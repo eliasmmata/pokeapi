@@ -37,6 +37,9 @@ nav {
     }
         li {
             padding: ($paddingContent + 1rem);
+            text-align: center;
+            display: flex;
+            align-items: center;
             
         }
             a {

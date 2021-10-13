@@ -459,6 +459,9 @@ nav ol {
 }
 nav li {
   padding: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 nav a {
   color: #000000;
