@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*Base*/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -62,6 +63,10 @@ pre {
   /* 1 */
   font-size: 1em;
   /* 2 */
+}
+
+ul {
+  padding: 0;
 }
 
 /* Text-level semantics
@@ -443,13 +448,16 @@ h6 {
   }
 }
 
+nav {
+  background: #FFDE00;
+}
 nav ol {
   list-style: none;
   margin: 0 auto;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  background: #FFDE00;
+  /* flex-direction: column; */
+  overflow: scroll;
 }
 @media (min-width: 1024px) {
   nav ol {
@@ -458,15 +466,114 @@ nav ol {
   }
 }
 nav li {
-  padding: 2rem;
+  font-size: 16px;
+  padding: 0.75rem 1.25rem;
   text-align: center;
   display: flex;
   align-items: center;
+}
+@media (min-width: 1024px) {
+  nav li {
+    margin: 0 1em;
+  }
+}
+nav li:nth-child(3):after {
+  content: "►";
+  margin-left: 10px;
+}
+@media (min-width: 768px) {
+  nav li:nth-child(3):after {
+    content: none;
+  }
 }
 nav a {
   color: #000000;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+
+.card {
+  border: 1px solid #000000;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  padding: 1em;
+  background-color: rgba(255, 222, 0, 0.5);
+}
+.card__title {
+  margin: 0 0.5em;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.card__id {
+  border: 1px solid #000000;
+  color: #000000;
+  background: #FFDE00;
+  width: 12%;
+  height: 37px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  padding-top: 5px;
+}
+.card__img {
+  max-height: 20vh;
+}
+
+/* FOOTER starts */
+.footer {
+  padding: 1rem 0 0 0;
+  font-family: monospace !important;
+}
+.footer__triangle {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 0px 40px 60px 40px;
+  margin-top: 22px;
+  border-color: transparent transparent #B3504B transparent;
+}
+.footer__triangle__back-to-top {
+  background-color: transparent;
+  display: inline-block;
+  margin-left: -6px;
+  margin-top: 30px;
+  outline: 0 !important;
+  color: white;
+  transition: 0.5s;
+}
+.footer__rrss {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 25%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 4vw;
+  border-top: 1px solid #B3504B;
+}
+.footer__rrss > a {
+  color: #B3504B;
+  transition: 0.25s;
+}
+.footer__copywright {
+  text-align: center;
+  font-size: 12px;
+}
+.footer__copywright > p {
+  margin-top: 0;
+  color: #B3504B;
+}
+.footer__copywright #elias {
+  color: #FF7F78;
+}
+
+/* FOOTER ENDS */
 
 /*# sourceMappingURL=app.css.map */

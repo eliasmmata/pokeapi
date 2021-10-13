@@ -1,0 +1,33 @@
+.card {
+    border: 1px solid $colorBlack;
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    padding: 1em;
+    background-color: rgba(255, 222, 0, 0.5);
+    &__title { 
+        margin: 0 0.5em;
+        display: flex;
+        align-items: center;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+    }
+    &__id {
+    border: 1px solid $colorBlack;
+    color: $colorBlack;
+    background: $colorMain;
+    width: 12%;
+    height: 37px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    padding-top: 5px;
+    }
+    &__img {
+        max-height: 20vh;
+    }
+}
