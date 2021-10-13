@@ -1,0 +1,15 @@
+/* @use 'sass:math';*/
+
+// importar fuente css/pokemon-font
+@font-face { font-family: Pokemon; src: url('/pokeproject/css/pokemon-font/PokemonSolid.ttf'); } 
+@font-face { font-family: PokemonHueca; src: url('/pokeproject/css/pokemon-font/PokemonHollow.ttf'); } 
+
+//Font Variables
+$mainFont: 'Pokemon', sans-serif;
+$secondaryFont: 'PokemonHueca', sans-serif;
+
+//Fonts weight's
+$light: 300;
+$regular : 400;
+$bold: 700;
+$black: 900;

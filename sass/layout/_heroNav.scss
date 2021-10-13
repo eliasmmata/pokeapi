@@ -1,0 +1,47 @@
+.hero {
+    padding: $paddingContent;
+    background-color: $colorBlack;
+    /* max-height: 20vh; */
+
+    &__image {
+        max-height: 40vh;
+        @include desktop {
+            max-width: 40%;
+            max-height: 20vh;
+            margin: 0 auto;
+        }
+    }
+    &__text {
+        color: #038AE4;
+        text-align: center;
+        font-size: 2rem;
+        padding: $paddingContent;
+        @include desktop {
+            font-size: 3rem;
+        }
+    }
+}
+
+nav {
+    ol {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background: $colorMain;
+        @include desktop {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+        li {
+            padding: ($paddingContent + 1rem);
+            
+        }
+            a {
+                color: $colorBlack;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+}
