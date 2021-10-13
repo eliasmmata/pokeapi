@@ -2,6 +2,7 @@
 html {
     font-size: 10px;
     box-sizing: border-box;
+    background-color: #E8E8E8;
 }
 
 *,
@@ -64,6 +65,11 @@ h5 {
 h6 {
     font-size: 2.8rem;
 }
-
+main {
+    margin-top: 1em;
+}
+li {
+    list-style: none;
+}
 //Utilities
 $paddingContent: 1rem;

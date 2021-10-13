@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./images/favicon.jpg" />
-    <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Poke Api</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <title>Poke Search Classic Edition</title>
     <script src="./js/app.js" defer></script>
 </head>
 <body>
-    <div class="hero">
+    <div class="hero" id="inicio">
         <img class="hero__image" src="./images/pokemonLogo.png">
         <h1 class="hero__text">GOTTA CATCH THEM ALL</h1>
     </div>
-    
+
     <nav>
         <ol class="nav__menu">
             <li><a href="#">Home</a></li>
@@ -28,13 +28,22 @@
         </ol>
     </nav>
     <main>
+        <h2>The Classics</h2>
+        <a id="goToFilter" href="#listPokemons">Go to Filter</a>
+        <ul id="characters">
+            <!-- dinamic content -->
+        </ul>
+        <p id="arrowParagraph">Scroll inside to see all of them</p>
         <button class="filter">
             <input class="input--box" id="searchInput" type="text">
             <button  class="input--button" id="searchButton">Buscar</button>
         </div>
-        <ul id="listPokemons">
-
-        </ul>
+        <div class="filterResultContainer">
+            <ul id="listPokemons">
+                <!-- dinamic content -->
+           </ul>
+        </div>
+        <p id="arrowRightParagraph">Swipe to see all results</p>
     </main>
     <footer class="footer">
         <div class="footer__triangle">

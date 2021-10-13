@@ -1,13 +1,19 @@
 .hero {
     padding: $paddingContent;
     background-color: $colorBlack;
+    background: linear-gradient(180deg, $colorBlack 50%, $colorMain 50%);
     /* max-height: 20vh; */
 
     &__image {
         max-height: 40vh;
-        @include desktop {
+        @include tablet {
             max-width: 40%;
             max-height: 20vh;
+            margin: 0 auto;
+        }
+        @include tablet {
+            max-width: 30%;
+            max-height: 15vh;
             margin: 0 auto;
         }
     }
@@ -17,13 +23,13 @@
         font-size: 2rem;
         padding: $paddingContent;
         @include desktop {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
     }
 }
 
 nav {
-    background: $colorMain;
+    background: $colorBlack;
     ol {
         list-style: none;
         margin: 0 auto;
@@ -42,12 +48,15 @@ nav {
             text-align: center;
             display: flex;
             align-items: center;
+            text-decoration: underline;
+            text-decoration: 1px underline;
             @include desktop {
                 margin: 0 1em;
             }
             
         }
         li:nth-child(3):after {
+            color: $colorMain;
             content:'\25BA';
             margin-left: 10px;
             @include tablet  {
@@ -55,7 +64,7 @@ nav {
             }
         }
             a {
-                color: $colorBlack;
+                color: $colorMain;
                 text-transform: uppercase;
                 letter-spacing: 3px;
             }

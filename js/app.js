@@ -6,13 +6,15 @@ let pokemons = [];
 const init = async () => {
     try {
         pokemons = await getAllPokemons();
-        addEvents();
         console.log('pokemon in init', pokemons);
+        printPokemons();
+        addEvents();
     }
     catch(error) {
         console.error('Pokemon not found!!');
     }
 }
+
 
 const getAllPokemons = async ()  => {
     try {
@@ -33,11 +35,35 @@ const getAllPokemons = async ()  => {
         console.error(error)
     }
 }
+const printPokemons = (characters) => {
+    pokemons.forEach((pokemon, index) => {
+        const $$liPokemon = document.createElement('li');
+        $$liPokemon.className = "pokemon";
+        const img = document.createElement('img');
+        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index+1}.svg`
+        img.alt = pokemon.name;
+        $$liPokemon.appendChild(img);
+
+        const $$nameP = document.createElement('p');
+        $$nameP.href = 'https://pokemon.com';
+        $$nameP.textContent = `${pokemon.name}`;
+        $$liPokemon.appendChild($$nameP);
+
+        const a = document.createElement('a');
+        a.href = 'https://pokemon.com';
+        a.textContent = `${index + 1}`;
+        a.target = "_blank";
+        $$liPokemon.appendChild(a);
+        
+        document.querySelector('#characters').appendChild($$liPokemon);
+    });
+}
+
 
 const addEvents = () => {
     /* const $$button = document.querySelector('#searchButton');
     $$button.addEventListener('click', inputInfoSearch); */
-    // diferente
+    // filtro inteligente
     const $$input = document.querySelector('#searchInput')
     $$input.addEventListener('input', inputInfoSearch)
 }
@@ -60,7 +86,15 @@ const findPokemon = (item) => {
 
 const paintFilterPokemons = (arrayPokemons) => {
     const $$ul = document.querySelector('#listPokemons');
-    $$ul.innerHTML = '';
+    const isEmpty = str => !str.trim().length;
+    document.getElementById("searchInput").addEventListener("input", function() {
+        if( isEmpty(this.value) ) {
+          console.log( "NAME is invalid (Empty)" )
+          $$ul.innerHTML = '';
+        } else {
+          console.log( `NAME value is: ${this.value}` );
+        }
+      });
 
     arrayPokemons.map((pokemon) => {
         const  $$li = document.createElement('li');
@@ -71,7 +105,9 @@ const paintFilterPokemons = (arrayPokemons) => {
                 <img src="${pokemon.img}" class="card__img">
             </div>
         `
-        $$ul.appendChild($$li)
-        console.log(pokemon.img)
+        $$li.classList.toggle('active');
+        $$ul.appendChild($$li);
+        console.log(pokemon.img);
     })
 }
+

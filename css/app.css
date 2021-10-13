@@ -12,6 +12,7 @@ html {
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
+  scroll-behavior: smooth;
 }
 
 /* Sections
@@ -355,6 +356,7 @@ template {
 html {
   font-size: 10px;
   box-sizing: border-box;
+  background-color: #E8E8E8;
 }
 
 *,
@@ -418,21 +420,37 @@ h6 {
   font-size: 2.8rem;
 }
 
+main {
+  margin-top: 1em;
+}
+
+li {
+  list-style: none;
+}
+
 /* @use 'sass:math'; */
 /** Media Queries **/
 /*Layout*/
 .hero {
   padding: 1rem;
   background-color: #000000;
+  background: linear-gradient(180deg, #000000 50%, #FFDE00 50%);
   /* max-height: 20vh; */
 }
 .hero__image {
   max-height: 40vh;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hero__image {
     max-width: 40%;
     max-height: 20vh;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .hero__image {
+    max-width: 30%;
+    max-height: 15vh;
     margin: 0 auto;
   }
 }
@@ -444,12 +462,12 @@ h6 {
 }
 @media (min-width: 1024px) {
   .hero__text {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 nav {
-  background: #FFDE00;
+  background: #000000;
 }
 nav ol {
   list-style: none;
@@ -471,6 +489,8 @@ nav li {
   text-align: center;
   display: flex;
   align-items: center;
+  text-decoration: underline;
+  text-decoration: 1px underline;
 }
 @media (min-width: 1024px) {
   nav li {
@@ -478,6 +498,7 @@ nav li {
   }
 }
 nav li:nth-child(3):after {
+  color: #FFDE00;
   content: "►";
   margin-left: 10px;
 }
@@ -487,9 +508,146 @@ nav li:nth-child(3):after {
   }
 }
 nav a {
-  color: #000000;
+  color: #FFDE00;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+main h2 {
+  color: #ED1729;
+  text-align: center;
+}
+main #goToFilter {
+  color: #000000;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+main p {
+  text-align: center;
+}
+main #arrowParagraph:before {
+  content: "↑";
+  display: block;
+}
+@media (min-width: 768px) {
+  main {
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    padding: 0 8rem;
+  }
+}
+
+#characters {
+  /* border: 1px solid $colorMain; */
+  margin: 0.5em;
+  padding: 0.5em;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 3px;
+  max-height: 70vh;
+  overflow: scroll;
+}
+@media (min-width: 1024px) {
+  #characters {
+    max-height: 95vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+  }
+}
+#characters li {
+  /* border: 1px solid $colorBlack; */
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: start;
+  border-radius: 3px;
+  min-height: 25vh;
+  padding: 0.5em;
+  text-transform: capitalize;
+}
+#characters li:nth-child(odd) {
+  background: radial-gradient(#FFDE00, #ffffff);
+}
+#characters li:nth-child(even) {
+  background: radial-gradient(#038AE4, #000000);
+  color: #ffffff;
+}
+#characters img {
+  max-height: 20vh;
+}
+#characters p {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+  #characters p {
+    font-size: 3rem;
+  }
+}
+#characters a {
+  font-size: 12px;
+  color: #ffffff;
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3px;
+  border-radius: 50%;
+  background: #000000;
+}
+@media (min-width: 768px) {
+  #characters a {
+    font-size: 1rem;
+    width: 10%;
+    padding: 0.75em 1em 0.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  input {
+    width: 100%;
+  }
+}
+
+.filter {
+  display: block;
+  margin: 0 auto 10px;
+}
+@media (min-width: 768px) {
+  .filter {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .filter {
+    width: 30%;
+  }
+}
+
+.input--button {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  width: 77%;
+  padding: 7px 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: #ED1729;
+  border: 1px solid #000000;
+  border-radius: 3px;
+}
+@media (min-width: 768px) {
+  .input--button {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .input--button {
+    width: 30%;
+  }
 }
 
 .card {
@@ -499,7 +657,9 @@ nav a {
   flex-wrap: wrap;
   margin: 1rem;
   padding: 1em;
-  background-color: rgba(255, 222, 0, 0.5);
+  background-color: #ffffff;
+  min-height: 45vh;
+  margin: 0 0.5em 0 0.5em;
 }
 .card__title {
   margin: 0 0.5em;
@@ -524,6 +684,37 @@ nav a {
 }
 .card__img {
   max-height: 20vh;
+}
+
+.filterResultContainer {
+  border-radius: 3px;
+  margin: 1em;
+  padding-left: 0.5em;
+  height: 50vh;
+  overflow: scroll;
+  background: #191919;
+  margin-left: 0.5em;
+}
+
+#listPokemons {
+  max-height: 50vh;
+  overflow: scroll;
+  display: flex;
+}
+#listPokemons li {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+#listPokemons li.active {
+  opacity: 1;
+  transition: all 5s ease 5s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
 }
 
 /* FOOTER starts */
