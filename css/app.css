@@ -456,6 +456,7 @@ li {
 }
 .hero__text {
   color: #038AE4;
+  text-shadow: 4px 2px 1px rgba(0, 0, 0, 0.9);
   text-align: center;
   font-size: 2rem;
   padding: 1rem;
@@ -491,6 +492,7 @@ nav li {
   align-items: center;
   text-decoration: underline;
   text-decoration: 1px underline;
+  text-shadow: 2px 2px 1px rgba(3, 138, 228, 0.9);
 }
 @media (min-width: 1024px) {
   nav li {
@@ -515,10 +517,12 @@ nav a {
 
 main h2 {
   color: #ED1729;
+  text-shadow: 4px 2px 1px rgba(0, 0, 0, 0.9);
   text-align: center;
 }
 main #goToFilter {
   color: #000000;
+  text-shadow: 1px 0px 0px rgba(237, 23, 41, 0.9);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -571,10 +575,12 @@ main #arrowParagraph:before {
 }
 #characters li:nth-child(odd) {
   background: radial-gradient(#FFDE00, #ffffff);
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.9);
 }
 #characters li:nth-child(even) {
   background: radial-gradient(#038AE4, #000000);
   color: #ffffff;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
 }
 #characters img {
   max-height: 20vh;
@@ -586,11 +592,19 @@ main #arrowParagraph:before {
 @media (min-width: 768px) {
   #characters p {
     font-size: 3rem;
+    letter-spacing: 1px;
+  }
+}
+@media (min-width: 1024px) {
+  #characters p {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
   }
 }
 #characters a {
   font-size: 12px;
   color: #ffffff;
+  text-shadow: none;
   width: 28%;
   display: flex;
   justify-content: center;
@@ -601,7 +615,7 @@ main #arrowParagraph:before {
 @media (min-width: 768px) {
   #characters a {
     font-size: 1rem;
-    width: 10%;
+    width: 15%;
     padding: 0.75em 1em 0.5em;
   }
 }
@@ -635,7 +649,7 @@ input {
   text-transform: uppercase;
   letter-spacing: 3px;
   background: #ED1729;
-  border: 1px solid #000000;
+  border: none;
   border-radius: 3px;
   transition: 0.25s;
 }
@@ -707,23 +721,38 @@ input {
   padding-left: 0.5em;
   height: 50vh;
   overflow: scroll;
-  background: #191919;
+  background-image: url(/pokeproject/images/favicon.jpg);
+  background-size: 2%;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-blend-mode: luminosity;
+  background-position: 0px -1px;
   margin-left: 0.5em;
 }
+@media (min-width: 768px) {
+  .filterResultContainer {
+    background-size: 1%;
+  }
+}
 .filterResultContainer #favourite {
-  color: #FFDE00;
+  color: #000000;
+  text-shadow: 5px 2px 1px rgba(255, 255, 255, 0.9);
   position: absolute;
   left: 0%;
   right: 0%;
-  transform: translateY(350%);
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: 0.25s;
 }
 .filterResultContainer #favourite:hover {
-  color: #ffffff;
+  color: #000000;
+  text-shadow: 5px 2px 1px rgba(255, 222, 0, 0.9);
   transition: 0.25s;
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .filterResultContainer #favourite {
+    font-size: 1.5em;
+  }
 }
 
 #listPokemons {
@@ -744,6 +773,10 @@ input {
   -moz-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
+}
+
+#arrowParagraph, #arrowRightParagraph {
+  text-shadow: 1px 1px 1px rgba(237, 23, 41, 0.9);
 }
 
 /* FOOTER starts */

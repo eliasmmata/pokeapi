@@ -1,10 +1,12 @@
 main {
     & h2{
-        color: $colorThird;;
+        color: $colorThird;
+        text-shadow: 4px 2px 1px rgb(0, 0, 0, 0.9);
         text-align: center;
     }
     #goToFilter {
         color: $colorBlack;
+        text-shadow: 1px 0px 0px rgb(237, 23, 41, 0.9);
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -51,10 +53,12 @@ main {
     }
     & li:nth-child(odd) {
         background: radial-gradient($colorMain, $colorWhite);
+        text-shadow: 2px 2px 0px rgb(255,255,255, 0.9);
     }
     & li:nth-child(even) {
         background: radial-gradient($colorSecond, $colorBlack);
         color: $colorWhite;
+        text-shadow: 2px 2px 1px rgb(0,0,0, 0.9);
     }
         & img {
             max-height: 20vh;
@@ -64,11 +68,17 @@ main {
             letter-spacing: 1px;
             @include tablet {
                 font-size: 3rem;
+                letter-spacing: 1px;
+            }
+            @include desktop {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
             }
         }
         & a {
             font-size: 12px;
             color: $colorWhite;
+            text-shadow: none;
             width: 28%;
             display: flex;
             justify-content: center;
@@ -77,7 +87,7 @@ main {
             background: $colorBlack;
             @include tablet {
                 font-size: 1rem;
-                width: 10%;
+                width: 15%;
                 padding: 0.75em 1em 0.5em;
             }
         }

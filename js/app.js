@@ -9,6 +9,7 @@ const init = async () => {
         console.log('pokemon in init', pokemons);
         printPokemons();
         addEvents();
+        goToInputBox();
     }
     catch(error) {
         console.error('Pokemon not found!!');
@@ -54,22 +55,19 @@ const printPokemons = (characters) => {
         a.textContent = `${index + 1}`;
         a.target = "_blank";
         $$liPokemon.appendChild(a);
-        
+
         document.querySelector('#characters').appendChild($$liPokemon);
     });
 }
 
 
 const addEvents = () => {
-    /* const $$button = document.querySelector('#searchButton');
-    $$button.addEventListener('click', inputInfoSearch); */
-    // filtro inteligente
     const $$input = document.querySelector('#searchInput')
     $$input.addEventListener('input', inputInfoSearch)
 }
 const inputInfoSearch = () => {
     const $$input = document.querySelector('#searchInput');
-    
+
     paintFilterPokemons(findPokemon($$input.value))
 }
 const findPokemon = (item) => {
@@ -88,7 +86,9 @@ const paintFilterPokemons = (arrayPokemons) => {
     const isEmpty = str => !str.trim().length;
     document.getElementById("searchInput").addEventListener("input", function() {
         if( isEmpty(this.value) ) {
-          console.log( "NAME is invalid (Empty)" )
+          console.log( "NAME is invalid (Empty)" );
+          const $$parag = document.querySelector('#favourite');
+          $$parag.style = "display:block";
           $$ul.innerHTML = '';
         } else {
           console.log( `NAME value is: ${this.value}` );
@@ -97,6 +97,7 @@ const paintFilterPokemons = (arrayPokemons) => {
 
     arrayPokemons.map((pokemon) => {
         const  $$li = document.createElement('li');
+        const $$parag = document.querySelector('#favourite');
         $$li.innerHTML = `
             <div class="card">
                 <h3 class="card__title" id=${pokemon.id}>${pokemon.name}</h3>
@@ -106,13 +107,22 @@ const paintFilterPokemons = (arrayPokemons) => {
         `
         // $$li.classList.toggle('active');
         $$ul.appendChild($$li);
+        $$parag.style = "display:none"
         console.log(pokemon.img);
     })
 }
-
-
-document.getElementById('favourite').onclick = function() {
+const goToInputBox = () => {
+    document.getElementById('favourite').onclick = function() {
     document.getElementById('searchInput').focus();
-};
+    };
+}
 
+const resetButton= () => {
+    const $$button = document.querySelector('#searchButton');
+    $$button.addEventListener('click', resetResult)
+}
+const resetResult= () => {
+    const $$input = document.querySelector('#searchInput')
+    const $$button = document.querySelector('#searchButton')
+};
 

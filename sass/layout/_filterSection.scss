@@ -21,7 +21,7 @@ input {
     text-transform: uppercase;
     letter-spacing: 3px;
     background: $colorThird;
-    border: 1px solid $colorBlack;
+    border: none;
     border-radius: 3px;
     transition: 0.25s;
     &:hover {
@@ -84,21 +84,32 @@ input {
     padding-left: 0.5em;
     height: 50vh;
     overflow: scroll;
-    background: #191919;
+    background-image: url(/pokeproject/images/favicon.jpg);
+    background-size: 2%;
+    background-color: rgb(255, 255, 255, 0.2);
+    background-blend-mode: luminosity;
+    background-position: 0px -1px;
     margin-left: 0.5em;
+    @include tablet {
+        background-size: 1%;
+    }
     & #favourite {
-        color: $colorMain;
+        color: $colorBlack;
+        text-shadow: 5px 2px 1px rgb(255, 255, 255, 0.9);
         position: absolute;
         left: 0%;
         right: 0%;
-        transform: translateY(350%);
         text-transform: uppercase;
         letter-spacing: 3px;
         transition: 0.25s;
         &:hover {
-            color: $colorWhite;
+            color: $colorBlack;
+            text-shadow: 5px 2px 1px rgb(255, 222, 0, 0.9);
             transition: 0.25s;
             cursor: pointer;
+        }
+        @include tablet {
+            font-size: 1.5em;
         }
     }
 }
@@ -125,5 +136,7 @@ input {
         transition: all 1s;
     }
 }
-
+#arrowParagraph, #arrowRightParagraph {
+    text-shadow: 1px 1px 1px rgb(237, 23, 41, 0.9);
+}
 
