@@ -606,13 +606,12 @@ main #arrowParagraph:before {
   }
 }
 
-@media (min-width: 768px) {
-  input {
-    width: 100%;
-  }
+input {
+  width: 100%;
 }
 
 .filter {
+  width: 55%;
   display: block;
   margin: 0 auto 10px;
 }
@@ -631,13 +630,19 @@ main #arrowParagraph:before {
   margin: 0 auto;
   text-align: center;
   display: block;
-  width: 77%;
+  width: 55%;
   padding: 7px 0 3px;
   text-transform: uppercase;
   letter-spacing: 3px;
   background: #ED1729;
   border: 1px solid #000000;
   border-radius: 3px;
+  transition: 0.25s;
+}
+.input--button:hover {
+  background-color: #FFDE00;
+  cursor: pointer;
+  transition: 0.25s;
 }
 @media (min-width: 768px) {
   .input--button {
@@ -660,6 +665,16 @@ main #arrowParagraph:before {
   background-color: #ffffff;
   min-height: 45vh;
   margin: 0 0.5em 0 0.5em;
+}
+@media (min-width: 768px) {
+  .card {
+    min-width: 35vw;
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    min-width: 35vw;
+  }
 }
 .card__title {
   margin: 0 0.5em;
@@ -695,6 +710,21 @@ main #arrowParagraph:before {
   background: #191919;
   margin-left: 0.5em;
 }
+.filterResultContainer #favourite {
+  color: #FFDE00;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  transform: translateY(350%);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: 0.25s;
+}
+.filterResultContainer #favourite:hover {
+  color: #ffffff;
+  transition: 0.25s;
+  cursor: pointer;
+}
 
 #listPokemons {
   max-height: 50vh;
@@ -702,7 +732,6 @@ main #arrowParagraph:before {
   display: flex;
 }
 #listPokemons li {
-  opacity: 0;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -o-transition: all 1s;

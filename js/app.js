@@ -80,7 +80,6 @@ const findPokemon = (item) => {
             return pokemon;
         }
     })
-    // return pokemonsFound;
     return pokemonsFound;
 }
 
@@ -105,9 +104,15 @@ const paintFilterPokemons = (arrayPokemons) => {
                 <img src="${pokemon.img}" class="card__img">
             </div>
         `
-        $$li.classList.toggle('active');
+        // $$li.classList.toggle('active');
         $$ul.appendChild($$li);
         console.log(pokemon.img);
     })
 }
+
+
+document.getElementById('favourite').onclick = function() {
+    document.getElementById('searchInput').focus();
+};
+
 

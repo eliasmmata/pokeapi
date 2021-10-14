@@ -1,9 +1,8 @@
 input {
-    @include tablet {
     width: 100%;
-    }
 }
 .filter {
+    width: 55%;
     display: block;
     margin: 0 auto 10px;
     @include tablet {
@@ -17,13 +16,19 @@ input {
     margin: 0 auto;
     text-align: center;
     display: block;
-    width: 77%;
+    width: 55%;
     padding: 7px 0 3px;
     text-transform: uppercase;
     letter-spacing: 3px;
     background: $colorThird;
     border: 1px solid $colorBlack;
     border-radius: 3px;
+    transition: 0.25s;
+    &:hover {
+        background-color: $colorMain;
+        cursor:pointer;
+        transition: 0.25s;
+    }
     @include tablet {
         width: 50%;
     }
@@ -41,7 +46,12 @@ input {
     background-color: $colorWhite;
     min-height: 45vh;
     margin: 0 0.5em 0 0.5em;
-
+    @include tablet {
+        min-width: 35vw;
+    }
+    @include desktop {
+        min-width: 35vw;
+    }
     &__title { 
         margin: 0 0.5em;
         display: flex;
@@ -76,6 +86,21 @@ input {
     overflow: scroll;
     background: #191919;
     margin-left: 0.5em;
+    & #favourite {
+        color: $colorMain;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        transform: translateY(350%);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: 0.25s;
+        &:hover {
+            color: $colorWhite;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+    }
 }
 
 #listPokemons {
@@ -84,7 +109,7 @@ input {
     display: flex;
 
     & li {
-        opacity: 0;
+        // opacity: 0;
         -webkit-transition: all 1s;
         -moz-transition: all 1s;
         -o-transition: all 1s;
