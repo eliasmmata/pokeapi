@@ -31,15 +31,36 @@ main {
     margin: 0.5em;
     padding: 0.5em;
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     border-radius: 3px;
     max-height: 70vh;
     overflow: scroll;
+    @include tablet {
+        grid-gap: 2rem;
+    }
     @include desktop {
         max-height: 95vh;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 2rem;
+        & li:nth-child(6), li:nth-child(8),li:nth-child(14),li:nth-child(16),li:nth-child(22),li:nth-child(24),li:nth-child(30),li:nth-child(32) 
+        ,li:nth-child(38),li:nth-child(40),,li:nth-child(46),li:nth-child(48),li:nth-child(54),li:nth-child(56),li:nth-child(62),li:nth-child(64)
+        ,li:nth-child(70),li:nth-child(72),li:nth-child(78),li:nth-child(80),li:nth-child(86),li:nth-child(88),li:nth-child(94),li:nth-child(96)
+        ,li:nth-child(102),li:nth-child(104),li:nth-child(110),li:nth-child(112),li:nth-child(118),li:nth-child(120),li:nth-child(126),li:nth-child(128)
+        ,li:nth-child(134),li:nth-child(136),li:nth-child(142),li:nth-child(144),li:nth-child(150) {
+            background: radial-gradient($colorSecond, $colorBlack) !important;
+            background-image: url('/pokeproject/images/pokeball-bg.jpeg') !important;
+            text-shadow: 2px 2px 0px rgb(255,255,255, 0.9) !important;
+            color: black !important;
+        }
+        & li:nth-child(5), li:nth-child(7),li:nth-child(10),li:nth-child(13), li:nth-child(15),li:nth-child(21),li:nth-child(23),li:nth-child(29),li:nth-child(31)
+        ,li:nth-child(37),li:nth-child(39),li:nth-child(45),li:nth-child(47),li:nth-child(53),li:nth-child(55),li:nth-child(61),li:nth-child(63)
+        ,li:nth-child(69),li:nth-child(71),li:nth-child(77),li:nth-child(79),li:nth-child(85),li:nth-child(87),li:nth-child(93),li:nth-child(95)
+        ,li:nth-child(101),li:nth-child(103),li:nth-child(109),li:nth-child(111),li:nth-child(117),li:nth-child(119),li:nth-child(125),li:nth-child(127)
+        ,li:nth-child(133),li:nth-child(135),li:nth-child(141),li:nth-child(143),li:nth-child(149) {
+            background: radial-gradient($colorSecond, $colorBlack) !important;
+            color: $colorWhite !important;
+            text-shadow: 2px 2px 1px rgb(0,0,0, 0.9) !important;
+        }
     }
     & li {
         /* border: 1px solid $colorBlack; */
@@ -50,9 +71,17 @@ main {
         min-height: 25vh;
         padding: 0.5em;
         text-transform: capitalize;
+        transition: 0.75s;
+        &:hover {
+            img { 
+                transform: translate3d(0px, -10px, 0px) rotateY(180deg)rotateX(5deg) rotateZ(1deg);
+                transition: 0.75s;
+            }
+        }
     }
     & li:nth-child(odd) {
-        background: radial-gradient($colorMain, $colorWhite);
+        background: radial-gradient($colorSecond, $colorBlack);
+        background-image: url('/pokeproject/images/pokeball-bg.jpeg');
         text-shadow: 2px 2px 0px rgb(255,255,255, 0.9);
     }
     & li:nth-child(even) {
@@ -62,6 +91,8 @@ main {
     }
         & img {
             max-height: 20vh;
+            transition: 0.75s;
+            filter: drop-shadow(2px 4px 6px black);
         }
         & p {
             font-size: 14px;
@@ -77,18 +108,23 @@ main {
         }
         & a {
             font-size: 12px;
-            color: $colorWhite;
+            color: $colorBlack;
+            text-shadow: 2px 2px 0px rgb(255,255,255, 0.9);
             text-shadow: none;
-            width: 28%;
+            width: 20px;
+            height: 20px;
             display: flex;
             justify-content: center;
             padding-top: 3px;
             border-radius: 50%;
-            background: $colorBlack;
+            /* background: $colorBlack; */
+            background-image: url('/pokeproject/images/favicon.jpg') !important;
+            background-size: 100%;
             @include tablet {
-                font-size: 1rem;
-                width: 15%;
-                padding: 0.75em 1em 0.5em;
+                font-size: 1.25rem;
+                width: 30px;
+                height: 30px;
+                padding: 0.5em 1em 0.5em;
             }
         }
 }

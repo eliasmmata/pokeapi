@@ -550,17 +550,40 @@ main #arrowParagraph:before {
   margin: 0.5em;
   padding: 0.5em;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
   border-radius: 3px;
   max-height: 70vh;
   overflow: scroll;
 }
+@media (min-width: 768px) {
+  #characters {
+    grid-gap: 2rem;
+  }
+}
 @media (min-width: 1024px) {
   #characters {
     max-height: 95vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
+  }
+  #characters li:nth-child(6), #characters li:nth-child(8), #characters li:nth-child(14), #characters li:nth-child(16), #characters li:nth-child(22), #characters li:nth-child(24), #characters li:nth-child(30), #characters li:nth-child(32),
+#characters li:nth-child(38), #characters li:nth-child(40), #characters li:nth-child(46), #characters li:nth-child(48), #characters li:nth-child(54), #characters li:nth-child(56), #characters li:nth-child(62), #characters li:nth-child(64),
+#characters li:nth-child(70), #characters li:nth-child(72), #characters li:nth-child(78), #characters li:nth-child(80), #characters li:nth-child(86), #characters li:nth-child(88), #characters li:nth-child(94), #characters li:nth-child(96),
+#characters li:nth-child(102), #characters li:nth-child(104), #characters li:nth-child(110), #characters li:nth-child(112), #characters li:nth-child(118), #characters li:nth-child(120), #characters li:nth-child(126), #characters li:nth-child(128),
+#characters li:nth-child(134), #characters li:nth-child(136), #characters li:nth-child(142), #characters li:nth-child(144), #characters li:nth-child(150) {
+    background: radial-gradient(#038AE4, #000000) !important;
+    background-image: url("/pokeproject/images/pokeball-bg.jpeg") !important;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.9) !important;
+    color: black !important;
+  }
+  #characters li:nth-child(5), #characters li:nth-child(7), #characters li:nth-child(10), #characters li:nth-child(13), #characters li:nth-child(15), #characters li:nth-child(21), #characters li:nth-child(23), #characters li:nth-child(29), #characters li:nth-child(31),
+#characters li:nth-child(37), #characters li:nth-child(39), #characters li:nth-child(45), #characters li:nth-child(47), #characters li:nth-child(53), #characters li:nth-child(55), #characters li:nth-child(61), #characters li:nth-child(63),
+#characters li:nth-child(69), #characters li:nth-child(71), #characters li:nth-child(77), #characters li:nth-child(79), #characters li:nth-child(85), #characters li:nth-child(87), #characters li:nth-child(93), #characters li:nth-child(95),
+#characters li:nth-child(101), #characters li:nth-child(103), #characters li:nth-child(109), #characters li:nth-child(111), #characters li:nth-child(117), #characters li:nth-child(119), #characters li:nth-child(125), #characters li:nth-child(127),
+#characters li:nth-child(133), #characters li:nth-child(135), #characters li:nth-child(141), #characters li:nth-child(143), #characters li:nth-child(149) {
+    background: radial-gradient(#038AE4, #000000) !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9) !important;
   }
 }
 #characters li {
@@ -572,9 +595,15 @@ main #arrowParagraph:before {
   min-height: 25vh;
   padding: 0.5em;
   text-transform: capitalize;
+  transition: 0.75s;
+}
+#characters li:hover img {
+  transform: translate3d(0px, -10px, 0px) rotateY(180deg) rotateX(5deg) rotateZ(1deg);
+  transition: 0.75s;
 }
 #characters li:nth-child(odd) {
-  background: radial-gradient(#FFDE00, #ffffff);
+  background: radial-gradient(#038AE4, #000000);
+  background-image: url("/pokeproject/images/pokeball-bg.jpeg");
   text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.9);
 }
 #characters li:nth-child(even) {
@@ -584,6 +613,8 @@ main #arrowParagraph:before {
 }
 #characters img {
   max-height: 20vh;
+  transition: 0.75s;
+  filter: drop-shadow(2px 4px 6px black);
 }
 #characters p {
   font-size: 14px;
@@ -603,20 +634,25 @@ main #arrowParagraph:before {
 }
 #characters a {
   font-size: 12px;
-  color: #ffffff;
+  color: #000000;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.9);
   text-shadow: none;
-  width: 28%;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   padding-top: 3px;
   border-radius: 50%;
-  background: #000000;
+  /* background: $colorBlack; */
+  background-image: url("/pokeproject/images/favicon.jpg") !important;
+  background-size: 100%;
 }
 @media (min-width: 768px) {
   #characters a {
-    font-size: 1rem;
-    width: 15%;
-    padding: 0.75em 1em 0.5em;
+    font-size: 1.25rem;
+    width: 30px;
+    height: 30px;
+    padding: 0.5em 1em 0.5em;
   }
 }
 
@@ -676,13 +712,23 @@ input {
   flex-wrap: wrap;
   margin: 1rem;
   padding: 1em;
-  background-color: #ffffff;
+  background-image: url("/pokeproject/images/poke-bg-card.jpeg");
+  background-size: 95%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 5px;
   min-height: 45vh;
   margin: 0 0.5em 0 0.5em;
+}
+.card:hover .card__img {
+  transform: translate3d(0px, -10px, 0px) rotateY(180deg) rotateX(5deg) rotateZ(1deg);
+  transition: 0.75s;
 }
 @media (min-width: 768px) {
   .card {
     min-width: 35vw;
+    background-position-y: -5px;
   }
 }
 @media (min-width: 1024px) {
@@ -701,7 +747,7 @@ input {
   border: 1px solid #000000;
   color: #000000;
   background: #FFDE00;
-  width: 12%;
+  width: 37px;
   height: 37px;
   border-radius: 50%;
   display: flex;
@@ -713,6 +759,7 @@ input {
 }
 .card__img {
   max-height: 20vh;
+  transition: 0.75s;
 }
 
 .filterResultContainer {
@@ -721,7 +768,7 @@ input {
   padding-left: 0.5em;
   height: 50vh;
   overflow: scroll;
-  background-image: url(/pokeproject/images/favicon.jpg);
+  background-image: url("/pokeproject/images/favicon.jpg");
   background-size: 2%;
   background-color: rgba(255, 255, 255, 0.2);
   background-blend-mode: luminosity;
@@ -776,7 +823,7 @@ input {
 }
 
 #arrowParagraph, #arrowRightParagraph {
-  text-shadow: 1px 1px 1px rgba(237, 23, 41, 0.9);
+  text-shadow: 1px 1px 1px rgba(131, 103, 103, 0.9);
 }
 
 /* FOOTER starts */
@@ -828,5 +875,31 @@ input {
 }
 
 /* FOOTER ENDS */
+@media (min-width: 100px) and (max-width: 374px) {
+  #characters {
+    margin: 0.5em;
+    padding: 0.5em;
+    display: flex;
+    grid-gap: 5px;
+    border-radius: 3px;
+    max-height: 70vh;
+    overflow: scroll;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  #characters li {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    border-radius: 3px;
+    min-height: 25vh;
+    padding: 0.5em;
+    text-transform: capitalize;
+    transition: 0.75s;
+    flex-basis: initial;
+    width: 49%;
+  }
+}
 
 /*# sourceMappingURL=app.css.map */
