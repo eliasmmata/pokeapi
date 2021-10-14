@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     init();
 }
 let pokemons = [];
@@ -10,14 +10,16 @@ const init = async () => {
         printPokemons();
         addEvents();
         goToInputBox();
+        resetButton();
+        resetResult();
     }
-    catch(error) {
+    catch (error) {
         console.error('Pokemon not found!!');
     }
 }
 
 
-const getAllPokemons = async ()  => {
+const getAllPokemons = async () => {
     try {
         const allPokemons = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=150');
         const allPokemonsJson = await allPokemons.json();
@@ -27,12 +29,12 @@ const getAllPokemons = async ()  => {
                 name: pokemon.name,
                 id: index + 1,
                 /* img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png` */
-                img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index+1}.svg`
+                img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`
             }
         })
         return listPokemonsInApi
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
     }
 }
@@ -41,7 +43,7 @@ const printPokemons = (characters) => {
         const $$liPokemon = document.createElement('li');
         $$liPokemon.className = "pokemon";
         const img = document.createElement('img');
-        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index+1}.svg`
+        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`
         img.alt = pokemon.name;
         $$liPokemon.appendChild(img);
 
@@ -71,10 +73,9 @@ const inputInfoSearch = () => {
     paintFilterPokemons(findPokemon($$input.value))
 }
 const findPokemon = (item) => {
-    // console.log(item)
     const pokemonsFound = pokemons.filter((pokemon) => {
 
-        if(pokemon.name.toLowerCase().includes(item.toLowerCase())) {
+        if (pokemon.name.toLowerCase().includes(item.toLowerCase())) {
             return pokemon;
         }
     })
@@ -83,21 +84,26 @@ const findPokemon = (item) => {
 
 const paintFilterPokemons = (arrayPokemons) => {
     const $$ul = document.querySelector('#listPokemons');
+
     const isEmpty = str => !str.trim().length;
-    document.getElementById("searchInput").addEventListener("input", function() {
-        if( isEmpty(this.value) ) {
-          console.log( "NAME is invalid (Empty)" );
-          const $$parag = document.querySelector('#favourite');
-          $$parag.style = "display:block";
-          $$ul.innerHTML = '';
+    document.getElementById("searchInput").addEventListener("input", function () {
+    
+        if (isEmpty(this.value)) {
+            console.log("NAME is invalid (Empty)");
+            const $$parag = document.querySelector('#favourite');
+            $$parag.style = "display:block";
+            $$ul.innerHTML = '';
         } else {
-          console.log( `NAME value is: ${this.value}` );
+            console.log(`NAME value is: ${this.value}`);
         }
-      });
+    });
+    // PARA QUE NO VUELVA A SALIR EL MISMO RESULTADO REPETIDO
+    $$ul.innerHTML = '';
 
     arrayPokemons.map((pokemon) => {
-        const  $$li = document.createElement('li');
+        const $$li = document.createElement('li');
         const $$parag = document.querySelector('#favourite');
+
         $$li.innerHTML = `
             <div class="card">
                 <h3 class="card__title" id=${pokemon.id}>${pokemon.name}</h3>
@@ -107,22 +113,27 @@ const paintFilterPokemons = (arrayPokemons) => {
         `
         // $$li.classList.toggle('active');
         $$ul.appendChild($$li);
-        $$parag.style = "display:none"
+        $$parag.style = "display:none";
         console.log(pokemon.img);
     })
 }
 const goToInputBox = () => {
-    document.getElementById('favourite').onclick = function() {
-    document.getElementById('searchInput').focus();
+    document.getElementById('favourite').onclick = function () {
+        document.getElementById('searchInput').focus();
     };
 }
 
-const resetButton= () => {
+const resetButton = () => {
     const $$button = document.querySelector('#searchButton');
-    $$button.addEventListener('click', resetResult)
+    $$button.addEventListener('click', resetResult);
 }
-const resetResult= () => {
-    const $$input = document.querySelector('#searchInput')
-    const $$button = document.querySelector('#searchButton')
-};
+const resetResult = () => {
+    const $$listPokemons = document.querySelector('#listPokemons');
+    $$listPokemons.innerHTML = '';
 
+    const $$parag = document.querySelector('#favourite');
+    $$parag.style = "display:block";
+
+    const $$input = document.querySelector('#searchInput');
+    $$input.value = null;
+};
