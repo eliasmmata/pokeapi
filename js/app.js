@@ -114,7 +114,7 @@ const paintFilterPokemons = (arrayPokemons) => {
         // $$li.classList.toggle('active');
         $$ul.appendChild($$li);
         $$parag.style = "display:none";
-        console.log(pokemon.img);
+        // console.log(pokemon.img);
     })
 }
 const goToInputBox = () => {

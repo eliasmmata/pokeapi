@@ -1,12 +1,12 @@
 main {
     & h2{
         color: $colorThird;
-        text-shadow: 4px 2px 1px rgb(0, 0, 0, 0.9);
+        text-shadow: 4px 2px 1px rgba(0, 0, 0, 0.9);
         text-align: center;
     }
     #goToFilter {
         color: $colorBlack;
-        text-shadow: 1px 0px 0px rgb(237, 23, 41, 0.9);
+        text-shadow: 1px 0px 0px rgba(237, 23, 41, 0.9);
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -49,7 +49,7 @@ main {
         ,li:nth-child(134),li:nth-child(136),li:nth-child(142),li:nth-child(144),li:nth-child(150) {
             background: radial-gradient($colorSecond, $colorBlack) !important;
             background-image: url('/pokeproject/images/pokeball-bg.jpeg') !important;
-            text-shadow: 2px 2px 0px rgb(255,255,255, 0.9) !important;
+            text-shadow: 2px 2px 0px rgba(255,255,255, 0.9) !important;
             color: black !important;
         }
         & li:nth-child(5), li:nth-child(7),li:nth-child(10),li:nth-child(13), li:nth-child(15),li:nth-child(21),li:nth-child(23),li:nth-child(29),li:nth-child(31)
@@ -59,7 +59,7 @@ main {
         ,li:nth-child(133),li:nth-child(135),li:nth-child(141),li:nth-child(143),li:nth-child(149) {
             background: radial-gradient($colorSecond, $colorBlack) !important;
             color: $colorWhite !important;
-            text-shadow: 2px 2px 1px rgb(0,0,0, 0.9) !important;
+            text-shadow: 2px 2px 1px rgba(0,0,0, 0.9) !important;
         }
     }
     & li {
@@ -72,7 +72,10 @@ main {
         padding: 0.5em;
         text-transform: capitalize;
         transition: 0.75s;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         &:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
             img { 
                 transform: translate3d(0px, -10px, 0px) rotateY(180deg)rotateX(5deg) rotateZ(1deg);
                 transition: 0.75s;
@@ -82,12 +85,12 @@ main {
     & li:nth-child(odd) {
         background: radial-gradient($colorSecond, $colorBlack);
         background-image: url('/pokeproject/images/pokeball-bg.jpeg');
-        text-shadow: 2px 2px 0px rgb(255,255,255, 0.9);
+        text-shadow: 2px 2px 0px rgba(255,255,255, 0.9);
     }
     & li:nth-child(even) {
         background: radial-gradient($colorSecond, $colorBlack);
         color: $colorWhite;
-        text-shadow: 2px 2px 1px rgb(0,0,0, 0.9);
+        text-shadow: 2px 2px 1px rgba(0,0,0, 0.9);
     }
         & img {
             max-height: 20vh;
@@ -109,7 +112,7 @@ main {
         & a {
             font-size: 12px;
             color: $colorBlack;
-            text-shadow: 2px 2px 0px rgb(255,255,255, 0.9);
+            text-shadow: 2px 2px 0px rgba(255,255,255, 0.9);
             text-shadow: none;
             width: 20px;
             height: 20px;
