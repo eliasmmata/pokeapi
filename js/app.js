@@ -39,6 +39,9 @@ const getAllPokemons = async () => {
     }
 }
 const printPokemons = (characters) => {
+    var $$spinnerLoad = document.getElementById('container-spinner');
+    $$spinnerLoad.style.visibility = 'hidden';
+    $$spinnerLoad.style.display = 'none';
     pokemons.forEach((pokemon, index) => {
         const $$liPokemon = document.createElement('li');
         $$liPokemon.className = "pokemon";
@@ -137,3 +140,4 @@ const resetResult = () => {
     const $$input = document.querySelector('#searchInput');
     $$input.value = null;
 };
+

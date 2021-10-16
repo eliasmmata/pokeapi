@@ -50,17 +50,19 @@ input {
     background-position: center;
     background-position-y: 5px;
     min-height: 45vh;
+    min-width: 65vw;
     margin: 0 0.5em 0 0.5em;
     &:hover .card__img { 
         transform: translate3d(0px, -10px, 0px) rotateY(180deg)rotateX(5deg) rotateZ(1deg);
         transition: 0.75s;
     }
     @include tablet {
-        min-width: 35vw;
+        min-width: 45vw;
         background-position-y: -5px;
     }
     @include desktop {
-        min-width: 35vw;
+        max-width: 30vw;
+        min-width: 30vw;
     }
     &__title { 
         margin: 0 0.5em;
